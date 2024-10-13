@@ -21,9 +21,9 @@
   /* Font style */
   --font-sm: 0.75rem;
   --font-smd: 1rem;
-  --font-md: 1.15rem;
+  --font-md: 1.1rem;
   --font-lg: 1.25rem;
-  --font-xlg: 2.15rem;
+  --font-xlg: 2rem;
   --font-xxlg: 3.5rem;
 
   /* Font weight */
@@ -37,7 +37,7 @@
 }
 
 .App {
-  padding-top: 2em;
+  padding: 1.5em;
   height: 100vh;
   display: flex;
   overflow: hidden;
