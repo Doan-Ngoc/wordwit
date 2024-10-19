@@ -1,4 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import wordList from "../words.json"
+
+let randomNum = Math.floor(Math.random() * wordList.words.length);
 
 const initialState = {
     board:["", "", "", "", "",
@@ -10,7 +13,7 @@ const initialState = {
        ],
     pos: 0,
     row: 0,
-    correctWord: "CONES"
+    correctWord: wordList.words[randomNum].toUpperCase()
 }
 export const boardSlice = createSlice({
     name: "board",
