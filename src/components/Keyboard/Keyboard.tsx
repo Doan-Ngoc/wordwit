@@ -3,31 +3,42 @@ import { useDispatch, useSelector } from "react-redux";
 import './keyboard.css'
 import Key from '../Key/Key';
 import { rootState } from "../interface";
-import { setBoard, incPos, decPos } from '../../redux/boardSlice';
+import { setBoard, incPos, decPos, incRow} from '../../redux/boardSlice';
 
 const Keyboard: React.FC = () => {
   const board = useSelector((state:rootState) => state.board.board)
   const position = useSelector((state:rootState) => state.board.pos)
+  const reduxRow = useSelector((state:rootState) => state.board.row)
   const dispatch = useDispatch()
-  const rows: string[] = [
+  const keyboardRows: string[] = [
         "q w e r t y u i o p",
         "a s d f g h j k l",
         "z x c v b n m",
       ];
+
+  //Click the Back button
   const clickBack = () => {
-    if (position <=0) return
+    if (Math.floor((position-1)/5) < reduxRow) return
     const newBoard = [...board]
     newBoard[position-1]=""
     dispatch(decPos())
     dispatch(setBoard(newBoard))
   }
+
+  //Click the Enter button
+  const clickEnter = () => {
+    if (position % 5 === 0 && position !== 0) {
+      dispatch(incRow())
+    }
+  }
+
   return (
     <div className='keyboard-container'>
-        {rows.map((row, idx) => {
+        {keyboardRows.map((row, idx) => {
         return (
         <div className='row'>
             {idx === 2 && (
-              <span className='letter-row'>
+              <span className='letter-row' onClick={clickEnter}>
                 Enter
               </span>
             )}

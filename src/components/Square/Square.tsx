@@ -1,5 +1,8 @@
 import React from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { rootState } from "../interface";
 import './square.css'
+import {motion} from 'framer-motion'
 
 interface IProps {
     val: string,
@@ -8,8 +11,30 @@ interface IProps {
 
 const Square: React.FC<IProps> = (props) => {
     const {val, squareIdx} = props
+    const correctWord = useSelector((state:rootState) => state.board.correctWord)
+    const position = useSelector((state:rootState) => state.board.pos)
+    const reduxRow = useSelector((state:rootState) => state.board.row)
+    
+    //Animation
+    const variants = {
+      filled: () => ({
+        scale: [1.2, 1],
+        transition: {
+          duration: 0.2,
+        },
+      }),
+      unfilled: () => ({
+        scale: [1.2, 1],
+        transition: {
+          duration: 0.2,
+        },
+      }),
+    };
+
   return (
+    <motion.div animate={val ? "filled" : "unfilled"} variants={variants}>
     <div className='square'>{val}</div>
+    </motion.div>
   )
 }
 
