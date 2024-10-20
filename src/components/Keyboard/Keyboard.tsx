@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector,  } from "react-redux";
 import './keyboard.css'
-import wordList from '../../words.json'
+import wordList from '../../wordList.json'
 import Key from '../Key/Key';
 import { rootState } from "../interface";
 import { setBoard, incPos, decPos, incRow} from '../../redux/boardSlice';
@@ -18,7 +18,8 @@ const Keyboard: React.FC = () => {
         "z x c v b n m",
       ];
 
-  let allWords: string[] = wordList.words;
+  let allWords: string[] = wordList.map(item => item.word);
+  
   //Word created by the last 5 letters
   let board5Words: string = `${board[position-5]}${board[position-4]}${board[position-3]}${board[position-2]}${board[position-1]}`.toLowerCase();
 
