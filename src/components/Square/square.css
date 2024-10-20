@@ -1,10 +1,13 @@
 .square {
-    font-size: 2rem;
-    height: 40px;
-    width: 40px;
-    text-align:center;
-    border: 2px solid var(--color-light-blue);
-    background:none;
+    font-size: var(--font-lg);
+    color: var(--color-dark-gray);
+    height: 35px;
+    width: 35px;
+    margin: 2px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--border-rounded-md);
+    background-color: var(--color-white);
     cursor: pointer;
     place-items: center;    
   }
@@ -12,19 +15,19 @@
   #correct {
     border:none;
     animation: flip 1s linear;
-    background-color: rgb(3,164,100);
+    background-color: var( --color-green);
   }
   
   #almost {
     border:none;
     animation: flip 1s linear;
-    background-color: rgb(255,213,0);
+    background-color: var( --bold-yellow);
   }
   
   #wrong {
     border: none;
     animation: flip 1s linear;
-    background-color: rgb(72,72,72);
+    background-color: var(--color-gray);
   }
 
   @keyframes flip {

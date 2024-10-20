@@ -1,11 +1,12 @@
-.heading-h1 {
-    font-size: var(--font-xlg);
+.heading {
     text-align: center;
-    font-weight: var(--font-semibold);
+    font-size: var(--font-lg);
 }
-.heading-subtitle {
-    color:white;
-    font-size: var(--font-md);
-    text-align: center;
-    font-weight: var(--font-medium);
+.heading h1 {
+   color: var(--color-green);
+    text-shadow: 0px 2px 0px color-mix(in srgb, var(--color-green) 70%, black);
+}
+.heading span {
+    color: var(--bold-yellow);
+    text-shadow: 0px 2px 0px color-mix(in srgb, var(--bold-yellow) 70%, black);
 }

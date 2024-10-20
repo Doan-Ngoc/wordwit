@@ -10,8 +10,7 @@ function App() {
   const board = useSelector((state:rootState) => state.board.board)
   return (
     <div className="App">
-      <Heading type="h1" text="Wordwit" />
-      <Heading type="subtitle" text="Another Wordle clone" />
+      <Heading/>
       <div className='board-container'>
         <Board board={board}/>
       </div>

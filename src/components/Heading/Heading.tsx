@@ -1,16 +1,10 @@
 import React from 'react'
 import './heading.css'
 
-interface IProps {
-    type: string,
-    text: string
-}
-
-const Heading: React.FC<IProps> = (props) => {
-    const {type, text} = props
+const Heading: React.FC = () => {
   return (
-    <p className={`heading-${type}`}>
-      {text}
+    <p className={"heading"}>
+      <h1>W<span>o</span>rd <span>W</span>i<span>t</span></h1>
     </p>
   )
 }

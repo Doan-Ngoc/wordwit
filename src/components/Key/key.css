@@ -1,10 +1,11 @@
-.letter {
-    background-color: grey;
-    color: white;
+.letter, .keyboard-container span {
+    background-color: var(--medium-yellow);
+    color: var(--color-gray);
     font-weight: var(--font-bold);
     font-size: var(--font-md);
     margin: 0.25em;
-    border-radius: 4px;
-    padding: 0.35em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-rounded-md);
+    padding: 0 0.35em;
     cursor: pointer;
 }
