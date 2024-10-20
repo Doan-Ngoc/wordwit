@@ -1,5 +1,5 @@
-import React from 'react'
-import { useDispatch, useSelector } from "react-redux";
+import React, {useEffect} from 'react'
+import { useDispatch, useSelector,  } from "react-redux";
 import './keyboard.css'
 import wordList from '../../words.json'
 import Key from '../Key/Key';
@@ -22,6 +22,13 @@ const Keyboard: React.FC = () => {
   //Word created by the last 5 letters
   let board5Words: string = `${board[position-5]}${board[position-4]}${board[position-3]}${board[position-2]}${board[position-1]}`.toLowerCase();
 
+  useEffect(() => {
+    if (board5Words === correctWord) {
+      alert("You got the right answer!");
+    }
+  }, [board5Words, correctWord]);
+
+
   //Click the Back button
   const clickBack = () => {
     if (Math.floor((position-1)/5) < reduxRow) return
@@ -40,12 +47,23 @@ const Keyboard: React.FC = () => {
     if (allWords.includes(board5Words)) {
     if (position % 5 === 0 && position !== 0) {
       dispatch(incRow())
+  //Alert if the player guessed the correct word
+      if (board5Words.toUpperCase() === correctWord) {
+        setTimeout(() => {
+          alert("You got the right answer!");
+        }, 0)
+      }
+    //Give the correct answer when the player used all the guesses
+      else if (board5Words.toUpperCase() !== correctWord && position === 30) {
+        setTimeout(() => {
+          alert("The word is: " + correctWord);
+        }, 0);
     }
-  }
-    if(position === 30 && allWords.includes(board5Words)) {
-      alert("The word is: " + correctWord);
-    }
-  }
+  }}}
+    // if(position === 30 && allWords.includes(board5Words)) {
+    //   alert("The word is: " + correctWord);
+    // }
+  // }
 
   return (
     <div className='keyboard-container'>
@@ -70,5 +88,4 @@ const Keyboard: React.FC = () => {
     </div>
   )
 }
-
 export default Keyboard
