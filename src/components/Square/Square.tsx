@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { rootState } from "../interface";
+import { rootState } from "../../redux/interface";
 import './square.css'
 import {motion} from 'framer-motion'
 
@@ -66,7 +66,7 @@ const Square: React.FC<IProps> = (props) => {
 
   return (
     <motion.div animate={val ? "filled" : "unfilled"} variants={variants}>
-    <div className='square' id={status}>{val}</div>
+    <div className='square' id={status || undefined}>{val}</div>
     </motion.div>
   )
 }

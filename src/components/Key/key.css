@@ -1,4 +1,5 @@
 .letter, .keyboard-container span {
+    min-width: 25px;
     background-color: var(--medium-yellow);
     color: var(--color-gray);
     font-weight: var(--font-bold);
@@ -8,4 +9,5 @@
     border-radius: var(--border-rounded-md);
     padding: 0 0.35em;
     cursor: pointer;
+    filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.2));
 }

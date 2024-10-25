@@ -13,9 +13,7 @@ const Board: React.FC<IProps> = (props) => {
     <div className="board">
         {board.map((square, idx) => {
           return (
-              <>
-              <Square val={square} squareIdx={idx} />
-              </>
+              <Square key={idx} val={square} squareIdx={idx} />
           )
         })}
       </div>

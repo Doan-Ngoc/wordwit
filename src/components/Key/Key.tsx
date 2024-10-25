@@ -1,7 +1,7 @@
 import React from 'react'
 import './key.css'
 import { useDispatch, useSelector } from "react-redux";
-import { rootState } from "../interface";
+import { rootState } from "../../redux/interface";
 import { setBoard, incPos } from '../../redux/boardSlice';
 
 interface IProps {
@@ -20,7 +20,7 @@ const Key: React.FC<IProps> = (props) => {
       if (position >= 30) return
       if (currentRow > row) return
       const newBoard = [...board]
-      newBoard[position] = letter
+      newBoard[position] = letter.toUpperCase()
       dispatch(setBoard(newBoard))
       dispatch(incPos())
     }

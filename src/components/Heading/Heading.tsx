@@ -3,9 +3,9 @@ import './heading.css'
 
 const Heading: React.FC = () => {
   return (
-    <p className={"heading"}>
+    <div className={"heading"}>
       <h1>W<span>o</span>rd <span>W</span>i<span>t</span></h1>
-    </p>
+    </div>
   )
 }
 
