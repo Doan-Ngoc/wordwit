@@ -10,8 +10,7 @@
     width: 300px;
   }
 
-.sidebar button {
-    min-width: 25px;
+.sidebar Button {
     background-color: var(--medium-yellow);
     color: var(--color-gray);
     font-weight: var(--font-bold);
@@ -47,4 +46,21 @@
 .hint-list h1 {
     font-size: var(--font-xlg);
     color: var(--color-gray);
+}
+
+.tutorial-dialog {
+    background-color: var(--medium-yellow);
+    color: var(--color-dark-gray);
+}
+
+.tutorial-colorbox {
+    min-width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-color: var(--bold-yellow);
+    border: 1.5px solid  
+}
+.tutorial-dialog Button {
+    color: var(--color-dark-gray);
+    font-weight: var(--font-bold);
 }

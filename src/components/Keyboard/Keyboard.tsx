@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import { useDispatch, useSelector} from "react-redux";
 import './keyboard.css'
+import Snackbar from '@mui/material/Snackbar';
 import wordList from '../../wordList.json'
+import { useDispatch, useSelector} from "react-redux";
 import Key from '../Key/Key';
 import { rootState } from "../../redux/interface";
 import { setBoard, incPos, decPos, incRow, addGuessedLetter} from '../../redux/boardSlice';
@@ -37,7 +38,6 @@ const Keyboard: React.FC = () => {
   const clickEnter = () => {
     // dispatch(getHint("a"))
     console.log( correctWord )
-    console.log('boardword', board5Words)
     //Check if the guess is a valid word
     if (!allWords.includes(board5Words.toLowerCase())) {
       alert("Invalid word")
@@ -72,15 +72,15 @@ const Keyboard: React.FC = () => {
     <div className='keyboard-container'>
         {keyboardRows.map((row, idx) => {
         return (
-        <div key={idx} className='row'>
+        <div key={idx} className='letter-row'>
             {idx === 2 && (
-              <span className='letter-row' onClick={clickEnter}>
+              <span onClick={clickEnter}>
                 Enter
               </span>
             )}
          {row.split(" ").map((letter, letterIdx) => {
           return (
-            <div className='letter-row' key={letterIdx}>
+            <div className='letter-button' key={letterIdx}>
               <Key letter={letter} />
               {letter === "m" && <span onClick={clickBack}>Back</span>}
             </div>

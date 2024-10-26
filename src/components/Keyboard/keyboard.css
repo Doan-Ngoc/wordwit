@@ -1,13 +1,13 @@
-.row {
+.letter-row {
     display: flex;   
     text-align: center;
     justify-content: center;
    }
-   .letter-row {
+.letter-button {
        display: flex;
        align-items: center;
    }
-    .keyboard-container span {
+.keyboard-container span {
        background-color: grey;
        color: white;
        font-weight: var(--font-bold);
@@ -16,4 +16,11 @@
        border-radius: 4px;
        padding: 0.25em;
        cursor: pointer;
+   }
+.keyboard-container span:hover {
+    background-color: #fdd796;
+   }
+
+.keyboard-container span:active {
+    transform: scale(1.05); 
    }

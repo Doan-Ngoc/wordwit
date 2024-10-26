@@ -1,4 +1,13 @@
 import './sidebar.css'
+import { Button } from '@mui/material';
+import {AutoAwesome, MenuBook} from '@mui/icons-material';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Typography from '@mui/material/Typography';
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from "react-redux";
 import wordList from '../../wordList.json'
@@ -26,21 +35,57 @@ const SideBar = () => {
     }
   };
 
+  // Dialog
+    const [open, setOpen] = React.useState(false);
+  
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      setOpen(false);
+    }
+
   return (
     <div className='sidebar'>
-        <button>Tutorial</button>
+        <Button endIcon={<MenuBook/>} onClick={handleClickOpen}>Tutorial</Button>
         <div className='hint'>
-            <button onClick={clickHint}>Hint</button>
+            <Button onClick={clickHint} endIcon={<AutoAwesome/>}>Hint</Button>
             <div className='hint-list'>
-                {/* <span className='hint-item'></span>
-                <span className='hint-item'></span>
-                <span className='hint-item'></span> */}
                 {hintArray.map((letter, index) => {
                   if (letter === "") return <span key={index} className='hint-item' />
                     else return <h1 key={index}>{letter}</h1>
           })}
             </div>
         </div>
+        {/* Tutorial Dialog */}
+        <Dialog onClose={handleClose} open={open}>
+        <div className='tutorial-dialog'>
+        <DialogTitle>
+        Welcome to Wordwit!
+        </DialogTitle>
+        <DialogContent style={{paddingBottom: "0"}}>
+          <Typography>
+            Guess the 5-letter word in 6 tries!<br/>
+            <b>Enter</b> to submit your guess.<br/>
+            Letters show:<br/>
+            <span className='tutorial-colorbox' style={{backgroundColor: 'var(--color-green)'}}/>&nbsp;
+             Green = Correct letter, right spot!<br/>
+            <span className='tutorial-colorbox' style={{backgroundColor: 'var(--bold-yellow)'}}/>&nbsp;
+            Yellow = Correct letter, wrong spot.<br/>
+            <span className='tutorial-colorbox' style={{backgroundColor: 'var(--color-gray)'}}/>&nbsp;
+            Gray = Not in the word.<br/>
+            <b>Back</b> to delete letters.<br/>
+            <b>Hint</b> to reveal a letter – you get 3 hints!<br/>
+            Have fun guessing! 🎉
+          </Typography>
+        </DialogContent>
+        <DialogActions style={{paddingRight: "24px"}}>
+          <Button onClick={handleClose}>
+            Got it!
+          </Button>
+        </DialogActions>
+        </div>
+      </Dialog>
     </div>
   )
 }

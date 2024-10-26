@@ -1,6 +1,6 @@
 .heading {
     text-align: center;
-    font-size: var(--font-lg);
+    font-size: var(--font-xlg);
 }
 .heading h1 {
    color: var(--color-green);
