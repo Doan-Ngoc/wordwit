@@ -5,15 +5,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from "react-redux";
-import wordList from '../../wordList.json'
-import Key from '../Key/Key';
 import { rootState } from "../../redux/interface";
 import {getHint} from '../../redux/boardSlice';
+import { showSnackbar} from '../../redux/snackbarSlice';
 
 const SideBar = () => {
   const correctWord = useSelector((state:rootState) => state.board.correctWord)
@@ -27,11 +24,10 @@ const SideBar = () => {
     const availableLetters = correctWord.split("").filter(letter => !guessedLetters.includes(letter));
     if (availableLetters.length > 0 && hintUsed<3) {
       const randomLetter = availableLetters[Math.floor(Math.random() * availableLetters.length)];
-      alert(`Hint: One of the letters is "${randomLetter}".`);
       dispatch(getHint(randomLetter))
       hintArray.push(randomLetter)
     } else {
-      alert("No more hints available.");
+      dispatch(showSnackbar("No more hint available"))
     }
   };
 
@@ -47,9 +43,9 @@ const SideBar = () => {
 
   return (
     <div className='sidebar'>
-        <Button endIcon={<MenuBook/>} onClick={handleClickOpen}>Tutorial</Button>
+        <Button className='sidebar-btn' endIcon={<MenuBook/>} onClick={handleClickOpen}>Tutorial</Button>
         <div className='hint'>
-            <Button onClick={clickHint} endIcon={<AutoAwesome/>}>Hint</Button>
+            <Button className='sidebar-btn' onClick={clickHint} endIcon={<AutoAwesome/>}>Hint</Button>
             <div className='hint-list'>
                 {hintArray.map((letter, index) => {
                   if (letter === "") return <span key={index} className='hint-item' />

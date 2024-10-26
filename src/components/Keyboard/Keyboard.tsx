@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './keyboard.css'
-import Snackbar from '@mui/material/Snackbar';
+import { showSnackbar, endGame } from '../../redux/snackbarSlice';
+import AppSnackbar from '../Snackbar/Snackbar';
 import wordList from '../../wordList.json'
 import { useDispatch, useSelector} from "react-redux";
 import Key from '../Key/Key';
@@ -36,11 +37,10 @@ const Keyboard: React.FC = () => {
 
   //Click the Enter button
   const clickEnter = () => {
-    // dispatch(getHint("a"))
     console.log( correctWord )
     //Check if the guess is a valid word
     if (!allWords.includes(board5Words.toLowerCase())) {
-      alert("Invalid word")
+      dispatch(showSnackbar('Invalid word!'))
     }
     if (allWords.includes(board5Words.toLowerCase())) {
     //If the player has filled up all 6 letters of 1 row
@@ -53,17 +53,15 @@ const Keyboard: React.FC = () => {
       });
     //Alert if the player guessed the correct word
       if (board5Words === correctWord) {
-        console.log('doan dung')
         setTimeout(() => {
-          alert("You got the right answer!");
-          window.location.reload();
+          dispatch(endGame('You got the right answer!'))
+          // window.location.reload();
         }, 0)
       }
     //Give the correct answer when the player used all the guesses
       else if (board5Words !== correctWord && position === 30) {
         setTimeout(() => {
-          alert("The word is: " + correctWord);
-          window.location.reload();
+          dispatch(endGame("The word is: " + correctWord))
         }, 0);
     }
   }}}
@@ -88,6 +86,7 @@ const Keyboard: React.FC = () => {
          })}
         </div>
     )})}
+    <AppSnackbar />
     </div>
   )
 }

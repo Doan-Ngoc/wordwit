@@ -1,4 +1,4 @@
-.letter, .keyboard-container span {
+.letter, .letter-row span {
     min-width: 25px;
     background-color: var(--medium-yellow);
     color: var(--color-gray);

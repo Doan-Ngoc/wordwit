@@ -10,7 +10,7 @@
     width: 300px;
   }
 
-.sidebar Button {
+.sidebar .sidebar-btn {
     background-color: var(--medium-yellow);
     color: var(--color-gray);
     font-weight: var(--font-bold);

@@ -1,0 +1,12 @@
+.snackbar-btn {
+    background-color: #e6a700;
+    padding: 5px 8px;
+    border-radius: var(--border-rounded-md);
+    margin-right: 15px;
+    cursor: pointer
+}
+
+.snackbar-btn:hover {
+    background-color: var(--medium-yellow);
+    cursor: pointer
+}

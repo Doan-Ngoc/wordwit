@@ -12,6 +12,14 @@ export interface boardState {
     hints: hintsState
 }
 
+export interface SnackbarState {
+    message: string;
+    open: boolean;
+    gameEnded: boolean
+}
+
 export interface rootState {
-    board: boardState
+    board: boardState,
+    hint: hintsState,
+    snackbar: SnackbarState
 }
