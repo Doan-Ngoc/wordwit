@@ -63,5 +63,5 @@ export const boardSlice = createSlice({
     }
 })
 
-export const {setBoard, incPos, decPos, incRow,addGuessedLetter, getHint} = boardSlice.actions
+export const {setBoard, incPos, decPos, incRow, addGuessedLetter, getHint} = boardSlice.actions
 export default boardSlice.reducer

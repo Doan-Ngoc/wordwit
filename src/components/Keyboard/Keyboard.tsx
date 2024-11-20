@@ -55,7 +55,6 @@ const Keyboard: React.FC = () => {
       if (board5Words === correctWord) {
         setTimeout(() => {
           dispatch(endGame('You got the right answer!'))
-          // window.location.reload();
         }, 0)
       }
     //Give the correct answer when the player used all the guesses
