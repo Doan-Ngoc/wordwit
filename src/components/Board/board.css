@@ -1,7 +1,5 @@
 .board{
     color: white;
-    /* height: 250px;  */
-    width: 250px;
     align-self: center;
     justify-content: center;
     background-color: var(--light-yellow);
@@ -9,7 +7,7 @@
     column-gap: 0.25em;
     grid-template-columns: repeat(5, 0fr);
     margin-bottom:1em;
-    padding: 1em 0;
+    padding: 1em 1.2em;
     border: 2px solid var(--border);
     border-radius: 7%;
 }

@@ -9,12 +9,28 @@ import { rootState } from "../../redux/interface";
 import { setBoard, incPos, decPos, incRow, addGuessedLetter} from '../../redux/boardSlice';
 
 const Keyboard: React.FC = () => {
+  const dispatch = useDispatch()
   const board = useSelector((state:rootState) => state.board.board)
   const position = useSelector((state:rootState) => state.board.pos)
   const reduxRow = useSelector((state:rootState) => state.board.row)
   const correctWord = useSelector((state:rootState) => state.board.correctWord)
-  const guessedLetters= useSelector((state:rootState) => state.board.hints.guessedLetters)
-  const dispatch = useDispatch()
+  // const guessedLetters= useSelector((state:rootState) => state.board.hints.guessedLetters)
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 600); // Example breakpoint for small screens
+    };
+
+    // Initial check and event listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  
   const keyboardRows: string[] = [
         "q w e r t y u i o p",
         "a s d f g h j k l",
@@ -67,11 +83,37 @@ const Keyboard: React.FC = () => {
 
   return (
     <div className='keyboard-container'>
+          {isSmallScreen ? (
+            <>
         {keyboardRows.map((row, idx) => {
         return (
         <div key={idx} className='letter-row'>
+        {row.split(" ").map((letter, letterIdx) => {
+          return (
+            <div className='letter-button' key={letterIdx}>
+              <Key letter={letter} />
+            </div>
+          )
+         })}
+         </div>
+        )})}
+         <div className='letter-row'>
+          <span onClick={clickEnter} className="enter-button">
+            Enter
+          </span>
+          <span onClick={clickBack} className="back-button">
+            Back
+          </span>
+        </div>
+         </>
+          )
+      : (
+      <>
+         {keyboardRows.map((row, idx) => {
+        return (
+        <div key={idx} className='letter-row'>
             {idx === 2 && (
-              <span onClick={clickEnter}>
+              <span className="enter-button" onClick={clickEnter}>
                 Enter
               </span>
             )}
@@ -79,14 +121,16 @@ const Keyboard: React.FC = () => {
           return (
             <div className='letter-button' key={letterIdx}>
               <Key letter={letter} />
-              {letter === "m" && <span onClick={clickBack}>Back</span>}
+              {letter === "m" && <span className="back-button" onClick={clickBack}>Back</span>}
             </div>
           )
          })}
         </div>
     )})}
-    <AppSnackbar />
-    </div>
+      </>
+      )}
+      <AppSnackbar />
+        </div>
   )
 }
 export default Keyboard

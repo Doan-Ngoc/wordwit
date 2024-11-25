@@ -13,7 +13,7 @@ let randomNum = Math.floor(Math.random() * wordList.length);
 //   }
 
 const initialState : boardState = {
-    board:["", "", "", "", "",
+    board:["A", "B", "M", "Y", "I",
         "", "", "", "", "",
         "", "", "", "", "",
         "", "", "", "", "",

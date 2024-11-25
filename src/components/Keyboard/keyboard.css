@@ -3,24 +3,60 @@
     text-align: center;
     justify-content: center;
    }
+
 .letter-button {
        display: flex;
        align-items: center;
-   }
-.keyboard-container span {
+}
+
+/* Enter and Back button */
+.letter-row span {
        background-color: grey;
        color: white;
        font-weight: var(--font-bold);
        font-size: var(--font-md);
        margin: 0.25em;
        border-radius: 4px;
-       padding: 0.25em;
+       padding: 0 10px;
        cursor: pointer;
    }
-.keyboard-container span:hover {
+  
+.letter-row span:hover {
+    border: 1px solid var(--border);
     background-color: #fdd796;
+    color: var(--color-gray);
    }
 
 .keyboard-container span:active {
     transform: scale(1.05); 
    }
+
+/* Letter buttons */
+.letter {
+    min-width: 25px;
+    background-color: var(--medium-yellow);
+    color: var(--color-gray);
+    font-weight: var(--font-bold);
+    font-size: var(--font-md);
+    margin: 0.25em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-rounded-md);
+    padding: 0 0.25em;
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.2));
+}
+
+.letter:hover {
+    background-color: #fdd796;
+}
+
+.letter:active {
+    transform: scale(1.05); 
+}
+
+
+@media (min-width: 1240px) {
+.letter-row span {
+       padding: 0 0.3em;
+   }
+}

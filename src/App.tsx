@@ -11,7 +11,7 @@ function App() {
   const board = useSelector((state:rootState) => state.board.board)
   return (
     <div className="App">
-      <Heading/>
+       <Heading/>
       <div className='board-container'>
         <Board board={board}/>
       </div>
