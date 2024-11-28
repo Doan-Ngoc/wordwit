@@ -8,7 +8,7 @@
 
 :root {
   /* Color pallette */
-  /* --color-green: #2CFFBA; */
+  --color-green: #2CFFBA;
   --color-button-hover: #00a06b;
   --color-dark-green: #151924;
   --color-white: #eeeeee;
@@ -46,19 +46,15 @@
 }
 
 .App {
-  padding: 1.5em;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  overflow: hidden;
   flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;   
+  padding: 25% 0; 
+  overflow: auto;
 }
 
-html,
-body {
-  overflow: hidden;
-  margin: 0;
-  min-height: 100vh;
-}
 body {
   text-align: left;
   scroll-behavior: smooth;

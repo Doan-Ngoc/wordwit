@@ -3,7 +3,6 @@
     gap: 20px;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
   }
 
 .sidebar .sidebar-btn {
@@ -14,7 +13,7 @@
     margin: 0.25em;
     border: 1px solid var(--border);
     border-radius: var(--border-rounded-md);
-    padding: 0.2em 0.5em;
+    padding: 0.2em 0.8em;
     cursor: pointer;
     filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.2));
 }
@@ -35,8 +34,8 @@
     background-color: var(--medium-yellow);
     border: 2px solid var(--border);
     border-radius: 6px;
-    height: 28px;
-    min-width: 1px;
+    height: 25px;
+    min-width: 10px;
 }
 
 .hint-list h1 {
