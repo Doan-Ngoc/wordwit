@@ -82,6 +82,14 @@ body {
   }
 }
 
+@media (min-width: 905px) {
+  .App {
+    min-height: 100vh;
+    padding: 10vh 0;
+    overflow: hidden;
+  }
+}
+
 
 
 /* End  */
