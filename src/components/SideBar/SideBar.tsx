@@ -26,8 +26,11 @@ const SideBar = () => {
       const randomLetter = availableLetters[Math.floor(Math.random() * availableLetters.length)];
       dispatch(getHint(randomLetter))
       hintArray.push(randomLetter)
-    } else {
+    } else if (hintUsed === 3) {
       dispatch(showSnackbar("No more hint available"))
+    }
+    else if (availableLetters.length <=0) {
+      dispatch(showSnackbar("You've got all the needed letters."))
     }
   };
 

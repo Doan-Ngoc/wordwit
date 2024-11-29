@@ -1,19 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import wordList from "../wordList.json"
-import { boardState, hintsState } from './interface'
+import { boardState } from './interface'
 
 let randomNum = Math.floor(Math.random() * wordList.length);
 
-// export interface boardState {
-//    board: string[],
-//    pos: number,
-//    row: number,
-//    correctWord: string,
-//    guessedLetters: string[]
-//   }
-
 const initialState : boardState = {
-    board:["A", "B", "M", "Y", "I",
+    board:["", "", "", "", "",
         "", "", "", "", "",
         "", "", "", "", "",
         "", "", "", "", "",

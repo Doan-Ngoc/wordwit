@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import { useSelector, UseSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Heading from './components/Heading/Heading';
 import Board from './components/Board/Board';
 import Keyboard from './components/Keyboard/Keyboard';

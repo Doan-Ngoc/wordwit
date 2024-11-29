@@ -6,7 +6,7 @@ import wordList from '../../wordList.json'
 import { useDispatch, useSelector} from "react-redux";
 import Key from '../Key/Key';
 import { rootState } from "../../redux/interface";
-import { setBoard, incPos, decPos, incRow, addGuessedLetter} from '../../redux/boardSlice';
+import { setBoard, decPos, incRow, addGuessedLetter} from '../../redux/boardSlice';
 
 const Keyboard: React.FC = () => {
   const dispatch = useDispatch()
@@ -53,7 +53,6 @@ const Keyboard: React.FC = () => {
 
   //Click the Enter button
   const clickEnter = () => {
-    console.log( correctWord )
     //Check if the guess is a valid word
     if (!allWords.includes(board5Words.toLowerCase())) {
       dispatch(showSnackbar('Invalid word!'))
@@ -62,7 +61,6 @@ const Keyboard: React.FC = () => {
     //If the player has filled up all 6 letters of 1 row
     if (position % 5 === 0 && position !== 0) {
       dispatch(incRow())
-      console.log('board5words', board5Words)
       // Track guessed letters
       board5Words.split("").forEach(letter => {
         dispatch(addGuessedLetter(letter))
