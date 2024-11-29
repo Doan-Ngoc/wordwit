@@ -11,10 +11,8 @@ function App() {
   const board = useSelector((state:rootState) => state.board.board)
   return (
     <div className="App">
-       <Heading/>
-      <div className='board-container'>
-        <Board board={board}/>
-      </div>
+      <Heading/>
+      <Board board={board}/>
       <Keyboard />
       <SideBar />
     </div>

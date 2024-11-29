@@ -62,15 +62,14 @@
 
 @media (min-width: 905px) {
 .sidebar {
-    /* background-color: aliceblue; */
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     bottom: 50%;
-    right: 12%;
+    left: 70%;
   }
 
 .sidebar .sidebar-btn {
@@ -94,18 +93,6 @@
 }
 
 @media (min-width: 1240px) {
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        bottom: 50%;
-        right: 10%;
-        width: 300px;
-      }
-    
     .sidebar .sidebar-btn {
         font-size: var(--font-lg);
         border: 2px solid var(--border);

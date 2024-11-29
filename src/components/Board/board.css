@@ -1,13 +1,14 @@
 .board{
     color: white;
+    display: grid;
     align-self: center;
     justify-content: center;
     background-color: var(--light-yellow);
-    display: grid;
     column-gap: 0.25em;
     grid-template-columns: repeat(5, 0fr);
-    margin-bottom:1em;
+    margin: 1em 0 2em;
     padding: 1em 1.2em;
     border: 2px solid var(--border);
     border-radius: 7%;
+    filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.2)); 
 }
